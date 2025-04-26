@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パーソナルカラー診断</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>あなたのパーソナルカラー診断</h1>
+    <img src="header.JPG" alt="ヘッダー画像">
+
+    <div id="question">
+        <p>好きな色味を選んでください：</p>
+        <button class="button" onclick="showResult('spring')">明るくてあたたかい色</button>
+        <button class="button" onclick="showResult('autumn')">深みのあるあたたかい色</button>
+        <button class="button" onclick="showResult('summer')">やわらかく涼しげな色</button>
+        <button class="button" onclick="showResult('winter')">はっきりとしたクールな色</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function showResult(season) {
+            let resultDiv = document.getElementById('result');
+            let image = '';
+            let text = '';
+
+            if (season === 'spring') {
+                image = 'iebeh.PNG';
+                text = 'あなたは【イエベ春】タイプです！';
+            } else if (season === 'autumn') {
+                image = 'iebah_aki.PNG';
+                text = 'あなたは【イエベ秋】タイプです！';
+            } else if (season === 'summer') {
+                image = 'bluebe_natsu.PNG';
+                text = 'あなたは【ブルベ夏】タイプです！';
+            } else if (season === 'winter') {
+                image = 'bluebe_fuyu.PNG';
+                text = 'あなたは【ブルベ冬】タイプです！';
+            }
+
+            resultDiv.innerHTML = `<h2>${text}</h2><img src="${image}" alt="${text}">`;
+        }
+    </script>
+
+</body>
+</html>
